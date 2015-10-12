@@ -8,7 +8,7 @@
 <body>
     <label for="age">Age</label>
     <input type="number" id="age" />
-    <button onclick="">Check age</button>
+    <button onclick="validation()">Check age</button>
     <p id="message"></p>
 
     <script>
@@ -22,6 +22,18 @@
         - input elementen hebben een 'value' property
         - gebruik de 'innerHTML' property om feedback te geven aan de gebruiker
         */
+        function validation() {
+            var in1 = document.getElementById("age");
+
+            if (in1.value >= 18) {
+                document.getElementById("message").innerHTML = "your age is ok"
+            }
+            else {
+                document.getElementById("message").innerHTML = "your age is to young"
+            };
+
+        }
+ 
     </script>
 </body>
 </html>
