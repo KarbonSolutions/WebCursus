@@ -28,7 +28,7 @@ function ticTacToe() {
             this.classList.add((currentPlayer === player1) ? 'btn-primary' : 'btn-info');
 
             currentPlayer = (currentPlayer === player1) ? player2 : player1;
-            winner(player1); winner(player2);
+            hasWon(player1); hasWon(player2);
         }
     }
 
@@ -42,7 +42,7 @@ function ticTacToe() {
         }
     }
     
-    function winner(player) {
+    function hasWon(player) {
         var start = 0;
         var playerName = player.name;
 
