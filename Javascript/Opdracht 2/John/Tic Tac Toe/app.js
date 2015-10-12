@@ -58,6 +58,9 @@ function ButtonClicked(i) {
             if (Winner == "X") {
                 document.getElementById("x_win").innerHTML++
             }
+            document.getElementById("reset").innerHTML = "start again";
+            alert("And the winner is: " + Winner)
+            ButtonReset()
         }
     }
 
@@ -71,6 +74,7 @@ function ButtonReset() {
         grid_clicked[i].innerHTML = "+";
     }
     EndGame = false;
+    document.getElementById("reset").innerHTML = "Restart"
 }
 
 function CheckWinner() {
