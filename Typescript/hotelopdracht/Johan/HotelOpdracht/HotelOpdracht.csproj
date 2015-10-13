@@ -23,11 +23,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="bootstrap.css" />
+    <Content Include="bootstrap.js" />
     <Content Include="index.html" />
+    <None Include="jquery-1.10.2.intellisense.js" />
+    <Content Include="jquery-1.10.2.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="bootstrap.d.ts" />
+    <TypeScriptCompile Include="jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
