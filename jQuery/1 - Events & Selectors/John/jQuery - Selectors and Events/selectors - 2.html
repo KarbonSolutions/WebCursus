@@ -1,11 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>selectors-2</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         // Use the correct selector to hide all elements with an href attribute.
-        $(document).ready(function(){
-            $("selector").hide();
+        $(document).ready(function () {
+            $("[href]").click(function () {
+                $("[href]").hide();
+            });
+            /* $("tr:odd").hide(); */
         });
     </script>
 </head>

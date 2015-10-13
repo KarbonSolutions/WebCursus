@@ -16,10 +16,6 @@ function ticTacToe() {
 
     }
 
-    //grid[0].classList.add("x");
-    //grid[0].innerHTML = "X";
-    //grid[0].classList.add("o");
-    //grid[0].innerHTML = "O";
     //Registreer hier de onClick event voor de reset knop    
 
     grid_clicked = [];
