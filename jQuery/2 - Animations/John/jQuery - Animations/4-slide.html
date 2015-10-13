@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>SlideToggle</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         //Use a jQuery method to toggle between sliding up and down the <div> element, when clicking the button.
@@ -8,6 +9,7 @@
         $(document).ready(function () {
             $("button").click(function () {
                 // add code here
+                $("div").slideToggle()
             });
         });
     </script>
