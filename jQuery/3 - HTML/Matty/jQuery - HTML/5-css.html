@@ -8,7 +8,12 @@
         $(document).ready(function () {
             $("p").click(function () {
                 // add code here
-            });
+                if ($(this).hasClass('important')) {
+                    $(this).removeClass('important');
+                } else {
+                    $(this).addClass('important');
+                }
+             });
         });
     </script>
     <style>
