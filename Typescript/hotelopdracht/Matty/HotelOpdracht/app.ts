@@ -24,6 +24,8 @@ De volgende features moeten ondersteund worden:
     | Kamer | Capaciteit | Naam gast | Incheck datum | Uitcheck datum |
     -------------------------------------------------------------------
 
+- 5 kamers, waarvan er 2 één persoons zijn, 1 twee persoons en 2 vier persoons.
+
 Als bonus kun je de twee tabellen onderverdelen in tabladen.
 Extra bonus:
 
