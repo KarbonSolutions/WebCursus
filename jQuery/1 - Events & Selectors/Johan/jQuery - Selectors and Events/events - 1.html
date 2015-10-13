@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script>
         // If you press a keyboard key inside the <input> element, it should be hidden. Use the correct event to do so.
         $(document).ready(function(){
-            $("selector").event(function(){
+            $("#inputfield").change(function () {
                 $(this).hide();
             });
         });
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <input type="text" value="Press any key inside me to hide me" size="40">
+    <input type="text" ID="inputfield" value="Press any key inside me to hide me" size="40">
 
 </body>
 </html>
