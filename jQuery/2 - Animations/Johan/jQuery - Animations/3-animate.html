@@ -6,6 +6,9 @@
         //Use the animate() method to set the font-size of <div> to 100 pixels. 
         //The duration of the effect should be "slow".
         $(document).ready(function(){            
+            $("div").click(function () {
+                $("div").animate({ "font-size": "100px" },"slow");
+            });
         });
     </script>
 </head>
