@@ -5,7 +5,10 @@
     <script>
         // Use the correct selector to hide all elements with an href attribute.
         $(document).ready(function(){
-            $("selector").hide();
+            $('body').click(function () {
+                $('a').hide();
+                alert("Why did you delete me !");
+            });
         });
     </script>
 </head>
