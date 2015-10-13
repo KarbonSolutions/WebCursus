@@ -7,7 +7,9 @@
         //The duration of the effect should be 1000 milliseconds.
         $(document).ready(function () {
             $("button").click(function () {
-                // add code here
+                $('div').slideToggle(1000, function () {
+                    // Animation complete.
+                });
             });
         });
     </script>

@@ -5,8 +5,9 @@
     <script>
     $(document).ready(function(){
         // Hide all p elements on click
-        $("selector").method("event", function(){
-            $(this).hide();
+        $('body').click(function () {
+            $('p:nth-child(2)').hide();
+            alert("Why");
         });
     });
     </script>
