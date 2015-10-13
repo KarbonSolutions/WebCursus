@@ -4,13 +4,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         // Use the correct selector to hide all odd table rows.
-        $(document).ready(function(){
-            $("selector").hide();
+        $(document).ready(function()
+        {
+            $("tr:odd").click(function () {
+                $(this).hide();
+            });
         });
     </script>
 </head>
 <body>
-
     <table border="1">
         <tr>
             <th>Company</th>

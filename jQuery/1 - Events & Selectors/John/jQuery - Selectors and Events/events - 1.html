@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>WebJohn</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         // If you press a keyboard key inside the <input> element, it should be hidden. Use the correct event to do so.
         $(document).ready(function(){
-            $("selector").event(function(){
+            $("input").keydown(function(){
                 $(this).hide();
             });
         });

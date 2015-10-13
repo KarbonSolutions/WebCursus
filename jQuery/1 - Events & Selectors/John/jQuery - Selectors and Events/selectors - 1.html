@@ -1,11 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>selectors-1</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         // Use the correct selector to hide all odd table rows.
-        $(document).ready(function(){
-            $("selector").hide();
+        $(document).ready(function () {
+            $("table").click(function () {
+                $("tr:odd").hide();
+                $("[href]").hide();
+            });
+           /* $("tr:odd").hide(); */
         });
     </script>
 </head>
@@ -37,6 +42,9 @@
             <td>UK</td>
         </tr>
     </table>
-
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <a href="http://karbonsolutions.nl/html/">HTML Tutorial</a>
+    <a href="http://karbonsolutions.nl/css/">CSS Tutorial</a>
 </body>
 </html>
