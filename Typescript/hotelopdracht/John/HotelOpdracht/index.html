@@ -6,12 +6,57 @@
     <title>Hotel</title>
     <link rel="stylesheet" href="bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="bootstrap.js"></script>
     <script src="jquery-1.10.2.js"></script>
+    <script src="bootstrap.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
     <div class="container">
+        <table class="table">
+            <caption>Optional table caption.</caption>
+            <thead>
+                <tr>
+                    <!--  | Kamer | Capaciteit | Prijs | Naam gast (indien bezet) |  -->
+                    <th>#</th>
+                    <th>Kamer</th>
+                    <th>Capaciteit</th>
+                    <th>Prijs</th>
+                    <th>Gast</th>
+                </tr>
+            </thead>
+            <tbody class="KamerOverzicht">
+
+                <!--
+                <tr>
+                    <th scope="row">3</th>
+                    <td>103</td>
+                    <td>3p</td>
+                    <td>€ 69,=</td>
+                    <td>empty</td>
+                </tr>
+                    -->
+            </tbody>
+        </table>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="KamerNummer">Kamer</label>
+                <select class="RoomList form-control"></select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2">Datum In</label>
+                <input type="text" class="form-control" id="IncheckDatum" placeholder="01-01-2015">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2">Datum Uit</label>
+                <input type="text" class="form-control" id="UitcheckDatum" placeholder="02-01-2015">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail2">Naam Gast</label>
+                <input type="text" class="form-control" id="Gast" placeholder="gast naam">
+            </div>
+            <a id="reserveer" class="btn btn-default">Reserveer</a>
+        </form>
     </div>
+
 </body>
 </html>
