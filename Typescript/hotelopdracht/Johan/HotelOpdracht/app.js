@@ -40,20 +40,78 @@ Tips:
 */
 $(function () {
     // binnen deze functie kun je html elementen ophalen en bewerken.
+    var numRooms = 5;
+    var h = new Hotel(numRooms);
+    h.arrRoom[0].Capaciteit = 1;
+    h.arrRoom[1].Capaciteit = 1;
+    h.arrRoom[2].Capaciteit = 2;
+    h.arrRoom[3].Capaciteit = 4;
+    h.arrRoom[4].Capaciteit = 4;
+    for (var i = 0; i < numRooms; i++) {
+        h.arrRoom[i].Kamer = i;
+        $('#roombody').append($("<tr>")
+            .append($("<td>").text(i + 1))
+            .append($("<td>").text(h.arrRoom[i].Capaciteit))
+            .append($("<td>").text(h.arrRoom[i].Capaciteit * 50))
+            .append($("<td>")));
+    }
+    //for (var i = 0; i < 2; i++) {
+    //    h.arrReservation[i].Kamer = i;
+    //    $('#reservationbody').append($("<tr>")
+    //        .append($("<td>").text(i + 1))
+    //        .append($("<td>").text(h.arrReservation[i].Capaciteit))
+    //        .append($("<td>"))
+    //        .append($("<td>"))
+    //        .append($("<td>")));
+    //}
+    $("#Reservering").click(function () {
+        var inName = $("#Name").val();
+        var inPersons = $("#Persons").val();
+        alert("Reservering voor: " + inName + ' ' + inPersons);
+        var kmr = 1;
+        Reserveer(kmr);
+    });
 });
 var Room = (function () {
-    function Room() {
+    function Room(kmr, cap, pr, nm) {
     }
+    ;
     return Room;
 })();
 var Reservation = (function () {
-    function Reservation() {
+    function Reservation(kmr, cap, nm, inchk, uitchk) {
     }
+    ;
     return Reservation;
 })();
 var Hotel = (function () {
-    function Hotel() {
+    function Hotel(rooms) {
+        this.arrRoom = [];
+        this.arrReservation = [];
+        for (var i = 0; i < rooms; i++) {
+            this.arrRoom.push(new Room(1, 1, 100, ''));
+        }
+        ;
+        for (var i = 0; i < rooms; i++) {
+            this.arrReservation.push(new Reservation(1, 1, ''));
+        }
+        ;
     }
+    ;
     return Hotel;
 })();
+function RoomTable() {
+}
+;
+function ReservationTable() {
+}
+;
+function Reserveer(kmr) {
+    $('#reservationbody').append($("<tr>")
+        .append($("<td>").text(kmr))
+        .append($("<td>"))
+        .append($("<td>"))
+        .append($("<td>"))
+        .append($("<td>")));
+}
 //# sourceMappingURL=app.js.map
