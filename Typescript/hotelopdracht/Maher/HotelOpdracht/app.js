@@ -39,21 +39,61 @@ Tips:
 
 */
 $(function () {
-    // binnen deze functie kun je html elementen ophalen en bewerken.
+    var hotel = new Hotel();
+    $('#butClick').click(function () {
+        var GastName = $('#Name').val();
+        var IncheckD = $('#Incheck').val();
+        var CapN = $('#Cap').val();
+        hotel.RSV(GastName, CapN, IncheckD);
+    });
+    for (var i = 0; i < hotel.Rooms.length; i++) {
+        var room = hotel.Rooms[i];
+        $('#Hotel').append($('<tr>').append($('<td>').text(room.Number)).append($('<td>').text(room.Capaciteit)).append($('<td>').text(room.Prijs)).append($('<td>').text(room.NaamGast).addClass('customer')));
+    }
 });
 var Room = (function () {
-    function Room() {
+    function Room(Number, Prijs, Capaciteit, NaamGast) {
+        this.Number = Number;
+        this.Prijs = Prijs;
+        this.NaamGast = NaamGast;
+        this.Capaciteit = Capaciteit;
     }
     return Room;
 })();
 var Reservation = (function () {
-    function Reservation() {
+    function Reservation(Kamer, IncheckDatum, UitcheckDatum) {
+        this.Kamer = Kamer;
+        this.IncheckDatum = IncheckDatum;
+        this.UitcheckDatum = UitcheckDatum;
     }
     return Reservation;
 })();
+;
 var Hotel = (function () {
     function Hotel() {
+        this.Rooms = [];
+        this.Reservations = [];
+        this.Rooms.push(new Room(1, 190, 2, ''));
+        this.Rooms.push(new Room(2, 150, 4, ''));
+        this.Rooms.push(new Room(3, 250, 2, 'Family Ree'));
+        this.Rooms.push(new Room(4, 140, 1, 'De heer Piet'));
+        this.Rooms.push(new Room(5, 140, 1, 'Mevrouw sint'));
     }
+    Hotel.prototype.RSV = function (Naam, Cap, IncheckD) {
+        for (var i = 0; i < this.Rooms.length; i++) {
+            var free = true;
+            var room = this.Rooms[i];
+            for (var k = 0; k < this.Reservations.length && free; ++k) {
+                if (this.Reservations[k].Kamer.Number == room.Number) {
+                    free = false;
+                }
+            }
+        }
+        /*/if free
+        var table = $('#Hotel tr .customer');
+         this.Reservations.push(new Reservation(   ));
+      */
+    };
     return Hotel;
 })();
 //# sourceMappingURL=app.js.map
