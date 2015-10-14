@@ -6,12 +6,40 @@
     <title>Hotel</title>
     <link rel="stylesheet" href="bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="bootstrap.js"></script>
     <script src="jquery-1.10.2.js"></script>
+    <script src="bootstrap.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
     <div class="container">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Kamer</th>
+                    <th>Capaciteit</th>
+                    <th>Prijs</th>
+                    <th>Naam gast</th>
+                </tr>
+            </thead>
+            <tbody id="Hotel">
+            </tbody>
+        </table>
+
+        <form class="RSVForm">
+            <div id="RSVName">
+                <label for="exampleInputName2">Naam gast</label>
+                <input type="text" class="form-control" id="Name" placeholder="voor + achter naam">
+            </div>
+            <div id="RSVTotal">
+                <label for="exampleInputName2">Capaciteit</label>
+                <input type="text" class="form-control" id="Cap" placeholder="xx">
+            </div>
+            <div id="RSVCheckdate">
+                <label for="exampleInputName2">Incheck datum</label>
+                <input type="text" class="form-control" id="Incheck" placeholder="dd/MM/yyyy">
+            </div>
+            <button type="submit" class="btn btn-default" id="butClick">Send invitation</button>
+        </form>'
     </div>
 </body>
 </html>
