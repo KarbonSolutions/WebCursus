@@ -56,10 +56,10 @@
             </thead>
             <tbody>
                 <tr ng-repeat="product in products">
-                    <td>{{ product.title }}</td>
-                    <td>{{ product.artist }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.releaseDate }}</td>
+                    <td>{{ product.Title }}</td>
+                    <td>{{ product.Artist }}</td>
+                    <td>{{ product.Price }}</td>
+                    <td>{{ product.ReleaseDate }}</td>
                 </tr>
             </tbody>
         </table>
@@ -80,12 +80,7 @@
             $scope.products = [];
 
             $scope.addProduct = function (i) {
-                $scope.products.push({
-                    title: albums[i].Title,
-                    artist: albums[i].Artist,
-                    price: albums[i].Price,
-                    releaseDate: albums[i].ReleaseDate,
-                });
+                $scope.products.push(albums[i]);
             };
         });
     </script>
