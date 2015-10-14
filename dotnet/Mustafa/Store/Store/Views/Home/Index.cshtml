@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="store" ng-controller="StoreController">
+
+        <h1>Winkel</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Artiest</th>
+                    <th>Prijs</th>
+                    <th>Release datum</th>
+                    <th>Koop</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(int i = 0; i < ViewBag.albums.Count; ++i)
+                {
+                    var album = ViewBag.albums[i];
+                    
+                    <text><tr>
+                        <td>@album.Title</td>
+                        <td>@album.Artist</td>
+                        <td>&euro; @album.Price</td>
+                        <td>@album.ReleaseDate.ToString("dd-MM-yyyy")</td>
+                        <td><button class="btn btn-default" ng-click="addProduct(@i)">Koop nu!</button></td>
+                    </tr></text>
+                }
+            </tbody>
+        </table>
+
+        <h1>Winkelwagen</h1>
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Artiest</th>
+                    <th>Prijs</th>
+                    <th>Release datum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td>{{ product.Title }}</td>
+                    <td>{{ product.Artist }}</td>
+                    <td>{{ product.Price }}</td>
+                    <td>{{ product.ReleaseDate }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        var albums = [];
+        @foreach(var album in ViewBag.albums)
+        {
+            @:albums.push(@Html.Raw(Json.Encode(album)));
+            @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
+        }
+
+        angular.module('store', []).controller('StoreController',
+            function ($scope, $http) {
+
+            $scope.products = [];
+
+            $scope.addProduct = function (i) {
+                $scope.products.push(albums[i]);
+            };
+        });
+    </script>
+</body>
+</html>
