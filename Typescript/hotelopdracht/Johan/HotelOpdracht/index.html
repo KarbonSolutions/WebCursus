@@ -6,12 +6,48 @@
     <title>Hotel</title>
     <link rel="stylesheet" href="bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="bootstrap.js"></script>
     <script src="jquery-1.10.2.js"></script>
+    <script src="bootstrap.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
+    <h1>Mijn Hotel</h1>
     <div class="container">
+        <table class="table table-bordered">
+            <thead id="roomhdr">
+                <tr>
+                    <th>Kamer</th>
+                    <th>Capaciteit</th>
+                    <th>Prijs</th>
+                    <th>Naam</th>
+                </tr>
+            </thead>
+            <tbody id="roombody" >
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead id="reservationhdr">
+                <tr>
+                    <th>Kamer</th>
+                    <th>Capaciteit</th>
+                    <th>Naam</th>
+                    <th>Aankomst</th>
+                    <th>Vertrek</th>
+                </tr>
+            </thead>
+            <tbody  id="reservationbody">
+            </tbody>
+        </table>
+        <div>
+            <label for="Name">Naam</label><input type="text" id="Name" />
+            <label for="Persons">Aantal</label><input type="number" id="Persons" />
+        </div>
+        <div>
+            <label for="CheckIn">Aankomst</label><input type="date" id="CheckIn" />
+            <label for="CheckOut">Vertrek</label><input type="date" id="CheckOut" />
+            <button id="Reservering">Reserveren</button>
+        </div>
     </div>
 </body>
 </html>
+

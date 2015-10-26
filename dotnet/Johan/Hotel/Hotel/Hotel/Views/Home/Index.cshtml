@@ -1,0 +1,131 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+    
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HOTEL</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/WebHotel.js"></script>
+</head>
+<body>
+    <script>
+        var rooms = [];
+        @foreach (var room in ViewBag.rooms)
+        {
+            @:rooms.push(@Html.Raw(Json.Encode(room)));
+        }
+
+        var reservations = [];
+        @foreach (var reservation in ViewBag.reservations)
+        {
+            @:reservations.push(@Html.Raw(Json.Encode(reservation)));
+        }       
+    </script>
+    <div class="container" ng-app="hotel" ng-controller="HotelController">
+        <h1>Rooms</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Room Number</th>
+                    <th>Capacity</th>
+                    <th>Price</th>
+                    <th>Guest Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < ViewBag.rooms.Count; ++i)
+                {
+                    var room = ViewBag.rooms[i];
+
+                    <text>
+                        <tr id="room-@i">
+                            <td>@room.RoomNumber</td>
+                            <td>@room.Capacity</td>
+                            <td>&euro; @room.Price</td>
+                            <td>@room.GuestName</td>
+                        </tr></text>
+                }
+            </tbody>
+        </table>
+
+        <h1>Reservations</h1>
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Guest Name</th>
+                    <th>Check-In Date</th>
+                    <th>Check-Out Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="reservation in reservations">
+                    <td>{{ ::reservation.RoomNumber }}</td>
+                    <td>{{ ::reservation.GuestName }}</td>
+                    <td>{{ ::reservation.CheckInDate }}</td>
+                    <td>{{ ::reservation.CheckOutDate }}</td>
+                </tr>                              
+             </tbody>
+        </table>
+    </div>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="name">Guest Name</label>
+            <input type="text" id="name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="count">Number of Guests</label>
+            <input type="number" min="1" max="4" id="count" class="form-control" />
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="date">Check-In Date</label>
+            <input type="date" id="date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="nights">Number of Nights</label>
+            <input type="number" min="1" max="31" id="nights" class="form-control" />
+        </div>
+        <button type="button" id="check" class="btn btn-default">CHECK</button>
+        <button type="button" id="reserve" class="btn btn-default">BOOK</button>
+    </form>
+
+
+
+    <script>
+        var reservations = [];
+        @foreach (var reservation in ViewBag.reservations)
+        {
+            @:reservations.push(@Html.Raw(Json.Encode (reservation)));
+            @:reservations[reservations.length - 1].CheckInDate = '@reservation.CheckInDate.ToString("dd-MM-yyyy")';
+            @:reservations[reservations.length - 1].CheckOutDate = '@reservation.CheckOutDate.ToString("dd-MM-yyyy")';
+        }
+        
+        angular
+            .module('hotel', [])
+            .controller('HotelController', function ($scope, $http) {
+                $scope.reservations = reservations;
+
+                //$scope.addReservation = function (i) {
+                //    $scope.reservations.push({
+                //        room: reservations[i].Room,
+                //        guestname: reservations[i].GuestName,
+                //        checkindate: reservations[i].CheckInDate,
+                //        checkoutdate: reservations[i].CheckOutDate
+            });                    
+    </script>
+
+</body>
+</html>
