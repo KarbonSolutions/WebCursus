@@ -13,5 +13,28 @@ namespace Store.Controllers
         {
             return View();
         }
+
+        public object Create(Album album)
+        {
+            try
+            {
+                db.Albums.Add(album);
+                db.SaveChanges();
+
+                return new
+                {
+                    Result ="OK",
+                    Record = album
+                };
+            }
+            catch(Exception e)
+            {
+                return new
+                {
+                    Result = "Failed",
+                    Message = e.Message
+                };
+            }
+        }
     }
 }
