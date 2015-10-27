@@ -38,4 +38,3 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
         return totalPrice;
     };
 });
-//# sourceMappingURL=StoreController.js.map
