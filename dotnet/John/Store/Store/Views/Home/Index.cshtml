@@ -21,8 +21,8 @@
 <body>
 
     <div class="container">
-        <p><h1>The Wonder Store</h1></p>
-        <p><h3>Order Page</h3></p>
+        <h1>The Wonder Store</h1>
+        <h3>Order Page</h3>
     </div>
     <div class="container" ng-app="store" ng-controller="StoreController">
         <table class="table table-bordered ">
@@ -53,7 +53,7 @@
             </tbody>
         </table>
 
-        <p>Winkelwagen - total price:  {{ totalPrice() | currency : '€ ' }}</p>
+        <h3>Winkelwagen - total price:  {{ totalPrice() | currency : '€ ' }}</h3>
 
         <table class="table table-condensed table-striped">
             <thead>
@@ -79,14 +79,14 @@
     </div>
 
 
-    <script>
+    @*<script>
         var albums = [];
         @foreach(var album in ViewBag.albums)
         {
             @:albums.push(@Html.Raw(Json.Encode(album)));
             @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
         }
-    </script>
+    </script>*@
 
 </body>
 </html>

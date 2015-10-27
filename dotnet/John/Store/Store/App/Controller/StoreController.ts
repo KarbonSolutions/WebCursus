@@ -6,19 +6,21 @@
     Count: number;
 }
 
-var albums: Array<Album> = [];
+// var albums: Array<Album> = [];
 
 angular.module('store').controller('StoreController', function ($scope, $http: angular.IHttpService ) {
     $scope.products = [];
     $scope.albums = [];
 
-    $http.post('ListAlbums', {}).success(function (data) {
+
+    //Ajax functie
+    $http.post('Home/ListAlbums', {}).success(function (data) {
         console.log(data);
         $scope.albums = data;
     });
 
     $scope.addProduct = function (i) {
-        var album: Album = albums[i];
+        var album: Album = $scope.albums[i];
         var count = 1;
 
         for (var p = 0; p < $scope.products.length; ++p) {

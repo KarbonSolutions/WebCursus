@@ -3,16 +3,17 @@ var Album = (function () {
     }
     return Album;
 })();
-var albums = [];
+// var albums: Array<Album> = [];
 angular.module('store').controller('StoreController', function ($scope, $http) {
     $scope.products = [];
     $scope.albums = [];
-    $http.post('ListAlbums', {}).success(function (data) {
+    //Ajax functie
+    $http.post('Home/ListAlbums', {}).success(function (data) {
         console.log(data);
         $scope.albums = data;
     });
     $scope.addProduct = function (i) {
-        var album = albums[i];
+        var album = $scope.albums[i];
         var count = 1;
         for (var p = 0; p < $scope.products.length; ++p) {
             var product = $scope.products[p];
@@ -37,3 +38,4 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
         return totalPrice;
     };
 });
+//# sourceMappingURL=StoreController.js.map
