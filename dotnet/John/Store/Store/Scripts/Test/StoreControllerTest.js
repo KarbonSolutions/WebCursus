@@ -37,3 +37,4 @@ describe('StoreController', function () {
         ]);
     });
 });
+//# sourceMappingURL=StoreControllerTest.js.map
