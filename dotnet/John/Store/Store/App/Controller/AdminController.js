@@ -5,7 +5,7 @@
         $scope.products = [];
         $scope.title = "test";
         $scope.artist = "";
-        $scope.price = 0;
+        $scope.price = "";
         $scope.releaseDate = "";
         $scope.addAlbum = function () {
             alert('test');
