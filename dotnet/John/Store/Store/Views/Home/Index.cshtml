@@ -21,7 +21,8 @@
 <body>
 
     <div class="container">
-        <p>Winkel - The Album of Music</p>
+        <p><h1>The Wonder Store</h1></p>
+        <p><h3>Order Page</h3></p>
     </div>
     <div class="container" ng-app="store" ng-controller="StoreController">
         <table class="table table-bordered ">
@@ -60,17 +61,18 @@
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Prijs</th>
-                    <th> Release datum</th>
+                    <th>Release datum</th>
+                    <th>Aantal</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="product in products">
-                    <td>{{ product.title }}</td>
-                    <td>{{ product.artist }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.releaseDate | date }}</td>
+                    <td>{{ product.Title }}</td>
+                    <td>{{ product.Artist }}</td>
+                    <td>{{ product.Price }}</td>
+                    <td>{{ product.ReleaseDate | date }}</td>
+                    <td>{{ product.Count }}</td>
                 </tr>
-
             </tbody>
         </table>
 
@@ -83,7 +85,7 @@
         {
             @:albums.push(@Html.Raw(Json.Encode(album)));
             @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
-                }
+        }
     </script>
 
 </body>

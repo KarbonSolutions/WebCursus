@@ -1,26 +1,43 @@
-﻿var albums = [];
+﻿class Album {
+    Title: string;
+    Artist: string;
+    Price: number;
+    ReleaseDate: Date;
+    Count: number;
+}
 
-angular.module('store').controller('StoreController',
-    function ($scope, $http) {
+var albums: Array<Album> = [];
 
-        $scope.products = [];
+angular.module('store').controller('StoreController', function ($scope, $http) {
+    $scope.products = [];
 
-        $scope.addProduct = function (i) {
-            $scope.products.push({
-                title: albums[i].Title,
-                artist: albums[i].Artist,
-                price: albums[i].Price,
-                releaseDate: new Date(albums[i].ReleaseDate),
-            });
+    $scope.addProduct = function (i) {
+        var album: Album = albums[i];
+        var count = 1;
 
-        };
-
-        $scope.totalPrice = function () {
-            var totalPrice = 0;
-            for (var i = 0; i < $scope.products.length; i++) {
-                totalPrice += $scope.products[i].price;
+        for (var p = 0; p < $scope.products.length; ++p) {
+            var product = $scope.products[p];
+            if (product === album) {
+                count = product.Count + 1;
+                break;
             }
-            return totalPrice;
-        };
+        }
+        album.Count = count;
 
-    });
+        // Deze push zorgt ervoor dat de productlist gekoppeld wordt aan de album list (referentie)
+        // Aanpassing van een object in de ene lijst zorgt dus automatisch voor een aanpassing in het object in de andere lijst.
+        // Allleen als count= dan bestaat er nog geen object in de products, dan moet die worden toegevoegd met push 
+        if (count === 1) {
+            $scope.products.push(album);
+        }
+    };
+
+    $scope.totalPrice = function () {
+        var totalPrice = 0;
+        for (var i = 0; i < $scope.products.length; i++) {
+            totalPrice += $scope.products[i].Price * $scope.products[i].Count ;
+        }
+        return totalPrice;
+    };
+
+});

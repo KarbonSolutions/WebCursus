@@ -961,8 +961,15 @@
     <TypeScriptCompile Include="App\App.ts" />
     <TypeScriptCompile Include="App\Controller\AdminController.ts" />
     <TypeScriptCompile Include="App\Controller\StoreController.ts" />
+    <TypeScriptCompile Include="Scripts\Test\StoreControllerTest.ts" />
     <TypeScriptCompile Include="Scripts\Test\Test.ts" />
-    <TypeScriptCompile Include="Scripts\typings\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jasmine.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
