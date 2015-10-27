@@ -12,4 +12,3 @@ describe('StoreController', function () {
         expect(true).toBe(true);
     });
 });
-//# sourceMappingURL=StoreControllerTest.js.map

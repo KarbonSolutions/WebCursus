@@ -28,4 +28,3 @@
         };
     });
 })();
-//# sourceMappingURL=AdminController.js.map

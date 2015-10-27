@@ -8,8 +8,14 @@
 
 var albums: Array<Album> = [];
 
-angular.module('store').controller('StoreController', function ($scope, $http) {
+angular.module('store').controller('StoreController', function ($scope, $http: angular.IHttpService ) {
     $scope.products = [];
+    $scope.albums = [];
+
+    $http.post('ListAlbums', {}).success(function (data) {
+        console.log(data);
+        $scope.albums = data;
+    });
 
     $scope.addProduct = function (i) {
         var album: Album = albums[i];

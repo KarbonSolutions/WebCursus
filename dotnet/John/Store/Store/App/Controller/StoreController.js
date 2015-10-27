@@ -6,6 +6,11 @@ var Album = (function () {
 var albums = [];
 angular.module('store').controller('StoreController', function ($scope, $http) {
     $scope.products = [];
+    $scope.albums = [];
+    $http.post('ListAlbums', {}).success(function (data) {
+        console.log(data);
+        $scope.albums = data;
+    });
     $scope.addProduct = function (i) {
         var album = albums[i];
         var count = 1;
@@ -32,4 +37,3 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
         return totalPrice;
     };
 });
-//# sourceMappingURL=StoreController.js.map
