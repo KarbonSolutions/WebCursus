@@ -13,11 +13,13 @@ describe('StoreController', function () {
                 Title: 'test',
                 Artist: 'test',
                 Price: 12.95,
-                ReleaseDate: new Date()
+                ReleaseDate: new Date(),
+                Count: 0
             }];
-        $scope.AddProduct(0);
+        $scope.addProduct(0);
         expect($scope.products[0]).toBe($scope.albums[0]);
-        expect($scope.products.length).toBe($scope.albums.lenght);
+        expect($scope.products.length).toBe($scope.albums.length);
         //expect(true).toBe(true);
     });
 });
+//# sourceMappingURL=StoreControllerTest.js.map
