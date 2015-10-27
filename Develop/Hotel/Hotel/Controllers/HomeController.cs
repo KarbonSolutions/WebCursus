@@ -21,6 +21,7 @@ namespace Hotel.Controllers
 
         public ActionResult CreateRoom(Room room)
         {           
+            var dbRoom = db.room.
             if (TryValidateModel(room)) {
                 db.Rooms.Add(room);
                 db.SaveChanges();
@@ -32,7 +33,7 @@ namespace Hotel.Controllers
 
         public ActionResult UpdateRoom(Room room)
         {
-            db.Rooms.Attach(room);
+            db.rooms.Attach(room);
             var entry = db.Entry(room);
             entry.State = System.Data.Entity.EntityState.Modified;
 
@@ -42,5 +43,8 @@ namespace Hotel.Controllers
 
             return View();
         }
+
+        public ActionResult.DeleteRoom(int id)
+            var room = db.Rooms.firstordefault(r => )
     }
 }

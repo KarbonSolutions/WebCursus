@@ -13,6 +13,8 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/App/App.js"></script>
+    <script src="~/App/Controllers/StoreController.js"></script>
 </head>
 <body>
     <div class="container" ng-app="store" ng-controller="StoreController">
@@ -74,15 +76,7 @@
             @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
         }
 
-        angular.module('store', []).controller('StoreController',
-            function ($scope, $http) {
 
-            $scope.products = [];
-
-            $scope.addProduct = function (i) {
-                $scope.products.push(albums[i]);
-            };
-        });
     </script>
 </body>
 </html>
