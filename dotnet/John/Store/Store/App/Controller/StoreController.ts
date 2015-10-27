@@ -40,6 +40,14 @@ angular.module('store').controller('StoreController', function ($scope, $http: a
         }
     };
 
+    $scope.sortProducts = function () {
+        var products: Array<Album> = $scope.products;
+            products.sort(function (a, b) {
+                return a.Title.localeCompare(b.Title);
+            });
+    };
+
+
     $scope.totalPrice = function () {
         var totalPrice = 0;
         for (var i = 0; i < $scope.products.length; i++) {

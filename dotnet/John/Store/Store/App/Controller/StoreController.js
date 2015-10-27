@@ -30,6 +30,12 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
             $scope.products.push(album);
         }
     };
+    $scope.sortProducts = function () {
+        var products = $scope.products;
+        products.sort(function (a, b) {
+            return a.Title.localeCompare(b.Title);
+        });
+    };
     $scope.totalPrice = function () {
         var totalPrice = 0;
         for (var i = 0; i < $scope.products.length; i++) {
@@ -38,4 +44,3 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
         return totalPrice;
     };
 });
-//# sourceMappingURL=StoreController.js.map

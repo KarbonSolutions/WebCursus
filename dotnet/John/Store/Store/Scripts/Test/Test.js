@@ -6,4 +6,3 @@ describe('test karma', function () {
         expect(true).toBe(true);
     });
 });
-//# sourceMappingURL=Test.js.map

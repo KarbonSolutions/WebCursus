@@ -24,7 +24,26 @@
         $scope.addProduct(0);
         expect($scope.products[0]).toBe($scope.albums[0]);
         expect($scope.products.length).toBe($scope.albums.length);
-        //expect(true).toBe(true);
 
+    });
+
+    it('sortProduct', function () {
+//        var $scope: { albums?: Array<Album>, products?: Array<Album>, addProduct?(i: number) } = {};
+        var $scope: any = {};
+        var controller = $controller('StoreController', { $scope: $scope });
+
+        $scope.products = [
+            { Title: 'zabc' },
+            { Title: 'pbcd' },
+            { Title: 'bcd' }
+        ];
+        
+        $scope.sortProducts();
+
+        expect($scope.products).toBe([
+            { Title: 'bcd'},
+            { Title: 'pbcd'},
+            { Title: 'zabc'}
+        ]);
     });
 });
