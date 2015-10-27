@@ -30,7 +30,7 @@ describe('StoreController', function () {
             { Title: 'bcd' }
         ];
         $scope.sortProducts();
-        expect($scope.products).toBe([
+        expect($scope.products).toEqual([
             { Title: 'bcd' },
             { Title: 'pbcd' },
             { Title: 'zabc' }

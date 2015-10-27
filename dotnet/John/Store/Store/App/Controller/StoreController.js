@@ -28,6 +28,7 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
         // Allleen als count= dan bestaat er nog geen object in de products, dan moet die worden toegevoegd met push 
         if (count === 1) {
             $scope.products.push(album);
+            $scope.sortProducts();
         }
     };
     $scope.sortProducts = function () {
