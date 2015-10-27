@@ -1,18 +1,38 @@
-﻿
-angular.module('store').controller('AdminController',
-    function ($scope, $http) {
+﻿(function () {
+    angular
+        .module('store')
+        .controller('AdminController',
+        function ($scope, $http) {
 
-        $scope.products = [];
+            $scope.products = [];
 
-        $scope.addAlbum = function () {
-            alert('test')
-            //$scope.products.push({
-            //    title: albums[i].Title,
-            //    artist: albums[i].Artist,
-            //    price: albums[i].Price,
-            //    releaseDate: new Date(albums[i].ReleaseDate),
-            //});
+            $scope.title = "test";
+            $scope.artist = "";
+            $scope.price = 0;
+            $scope.releaseDate = "";
 
-        };
+            $scope.addAlbum = function () {
+                alert('test');
 
-    });
+                $http.post('Create', {
+                    Title: $scope.title,
+                    Artist: $scope.artist,
+                    Price: $scope.price,
+                    ReleaseDate: $scope.releaseDate
+                }).success(function (data) {
+                    console.log(data);
+                }).error(function (data) {
+                    console.log(data);
+                });
+                //$scope.products.push({
+                //    title: albums[i].Title,
+                //    artist: albums[i].Artist,
+                //    price: albums[i].Price,
+                //    releaseDate: new Date(albums[i].ReleaseDate),
+                //});
+
+            };
+
+        });
+
+})();

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Store.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace Store.Controllers
 {
@@ -18,14 +20,15 @@ namespace Store.Controllers
         {
             try
             {
+                album.ReleaseDate = DateTime.Now;
                 db.Albums.Add(album);
                 db.SaveChanges();
 
-                return new
+                return JsonConvert.SerializeObject (new 
                 {
                     Result ="OK",
                     Record = album
-                };
+                });
             }
             catch(Exception e)
             {

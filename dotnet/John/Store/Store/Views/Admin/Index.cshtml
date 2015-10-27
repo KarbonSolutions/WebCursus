@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+
+    <script src="~/App/App.js"></script>
+    <script src="~/App/Controller/AdminController.js"></script>
+
+</head>
+<body>
+    <div class="container" ng-app="store" ng-controller="AdminController">
+
+        <div class="container">
+            <p><h1>The Wonder Store</h1></p>
+        </div>
+        <div class="container">
+            <p><h2>Admin page</h2></p>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" class="form-control" type="text" ng-model="title" />
+                <p>{{ title }}</p>
+            </div>
+            <div class="form-group">
+                <label for="artist">Artist</label>
+                <input id="title" class="form-control" type="text" ng-model="artist" />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input id="title" class="form-control" type="number" ng-model="price" />
+            </div>
+            <div class="form-group">
+                <label for="releaseDaye">Release date</label>
+                <input id="title" class="form-control" type="date" ng-model="releaseDaye" />
+            </div>
+        </div>
+        <div class="container">
+            <button type="button" class="btn btn-primary" ng-click="addAlbum()">Add</button>
+        </div>
+    </div>
+</body>
+</html>
