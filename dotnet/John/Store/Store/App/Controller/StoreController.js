@@ -8,7 +8,7 @@ angular.module('store').controller('StoreController', function ($scope, $http) {
     $scope.products = [];
     $scope.albums = [];
     //Ajax functie
-    $http.post('Home/ListAlbums', {}).success(function (data) {
+    $http.post('/Home/ListAlbums', {}).success(function (data) {
         console.log(data);
         $scope.albums = data;
     });

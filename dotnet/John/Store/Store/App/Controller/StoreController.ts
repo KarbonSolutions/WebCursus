@@ -14,7 +14,7 @@ angular.module('store').controller('StoreController', function ($scope, $http: a
 
 
     //Ajax functie
-    $http.post('Home/ListAlbums', {}).success(function (data) {
+    $http.post('/Home/ListAlbums', {}).success(function (data) {
         console.log(data);
         $scope.albums = data;
     });
