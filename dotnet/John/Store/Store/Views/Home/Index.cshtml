@@ -13,7 +13,7 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
 
-   
+
 
     <script src="~/App/App.js"></script>
     <script src="~/App/Controller/StoreController.js"></script>
@@ -23,6 +23,12 @@
     <div class="container">
         <h1>The Wonder Store</h1>
         <h3>Order Page</h3>
+    </div>
+    <div class="container">
+        <a class="btn btn-default" href="/Admin">Admin</a>
+    </div>
+    <div class="container">
+        <p></p>
     </div>
     <div class="container" ng-app="store" ng-controller="StoreController">
         <table class="table table-bordered ">
@@ -80,13 +86,13 @@
 
 
     @*<script>
-        var albums = [];
-        @foreach(var album in ViewBag.albums)
-        {
-            @:albums.push(@Html.Raw(Json.Encode(album)));
-            @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
-        }
-    </script>*@
+            var albums = [];
+            @foreach(var album in ViewBag.albums)
+            {
+                @:albums.push(@Html.Raw(Json.Encode(album)));
+                @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
+            }
+        </script>*@
 
 </body>
 </html>

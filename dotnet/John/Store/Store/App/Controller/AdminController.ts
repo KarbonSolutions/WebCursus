@@ -6,7 +6,7 @@
 
             $scope.products = [];
 
-            $scope.title = "test";
+            $scope.title = "";
             $scope.artist = "";
             $scope.price = "";
             $scope.releaseDate = "";
@@ -14,7 +14,7 @@
             $scope.addAlbum = function () {
                 alert('test');
 
-                $http.post('Create', {
+                $http.post('Admin/Create', {
                     Title: $scope.title,
                     Artist: $scope.artist,
                     Price: $scope.price,
