@@ -28,6 +28,14 @@ namespace Hotel.Controllers
             return Redirect("Index");
         }
 
+        [HttpGet]
+        public List<Rooms> GetRooms()
+        {
+            var rooms = db.Rooms.Take(10).ToList();
+            return rooms;
+        }
+
+
         public List<Reservations> GetReservations() {
             var reservations = db.Reservations.Take(10).ToList(); 
             return reservations;
@@ -37,7 +45,7 @@ namespace Hotel.Controllers
         [HttpGet]
         public ActionResult CreateReservation(Reservations reservation)
         {
-            db.Reservations .Add(reservation);
+            db.Reservations.Add(reservation);
             db.SaveChanges();
             return Redirect("Index");
         }
