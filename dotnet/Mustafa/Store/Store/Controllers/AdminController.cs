@@ -24,19 +24,22 @@ namespace Store.Controllers
                 db.Albums.Add(album);
                 db.SaveChanges();
 
-                return JsonConvert.SerializeObject (new 
+                return JsonConvert.SerializeObject( new
                 {
-                    Result ="OK",
+                    Result = "Ok",
                     Record = album
                 });
+
             }
-            catch(Exception e)
+
+            catch (Exception e)
             {
-                return new
+                return  JsonConvert.SerializeObject( new
                 {
-                    Result = "Failed",
+                    Result = "False",
                     Message = e.Message
-                };
+
+                });
             }
         }
     }
