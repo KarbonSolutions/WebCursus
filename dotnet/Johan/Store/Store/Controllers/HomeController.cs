@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace Store.Controllers
 {
@@ -16,6 +17,12 @@ namespace Store.Controllers
             ViewBag.albums = albums;
 
             return View();
+        }
+
+        public object ListAlbums()
+        {
+            var albums = db.Albums.ToList();
+            return JsonConvert.SerializeObject(albums);
         }
 
         [HttpGet]

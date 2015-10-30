@@ -12,8 +12,10 @@
     <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.js" ></script>
-    <script src="~/Scripts/angular.min.js" ></script>
+    <script src="~/Scripts/angular.js"></script>
 
+    <script src="~/App/App.js"></script>
+    <script src="~/App/Controllers/StoreController.js"></script>
 </head>
 <body>
     <script>
@@ -61,42 +63,20 @@
                     <th>Artist</th>
                     <th>Price</th>
                     <th>Release Date</th>
+                    <th>Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="product in products">
-                    <td>{{product.title}}</td>
-                    <td>{{product.artist}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.releasedate}}</td>
+                    <td>{{product.Title}}</td>
+                    <td>{{product.Artist}}</td>
+                    <td>{{product.Price}}</td>
+                    <td>{{product.Releasedate}}</td>
+                    <td>{{product.Count}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <script>
-        var albums = [];
-        @foreach (var album in ViewBag.albums)
-        {
-            @:albums.push(@Html.Raw(Json.Encode (album)));
-            @:albums[albums.length - 1].ReleaseDate = '@album.ReleaseDate.ToString("dd-MM-yyyy")';
-        }
-
-
-        angular
-            .module('store', [])
-            .controller('StoreController', function ($scope, $http) {
-                $scope.products = [];
-
-                $scope.addProduct = function (i) {
-                    $scope.products.push({
-                title: albums[i].Title,
-                        artist: albums[i].Artist,
-                        price: albums[i].Price,
-                        releasedate: albums[i].ReleaseDate
-                    })
-            };
-        })
-    </script>
 </body>
 </html>
